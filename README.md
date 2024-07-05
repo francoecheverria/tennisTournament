@@ -8,7 +8,7 @@ Para utilizar este proyecto, sigue los siguientes pasos:
 
 1. **Clonar el Repositorio:**
    ```bash
-       git clone https://github.com/tu-usuario/tu-repositorio.git
+       git clone https://github.com/francoecheverria/tennisTournament.git
     ```
     Instalar Dependencias:
 
