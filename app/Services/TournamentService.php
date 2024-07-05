@@ -56,13 +56,22 @@ class TournamentService
 
     private function calculateScore(Player $player)
     {
-        $luck = $this->calculateLuck($player->skill_level);
-        $score = $player->skill_level + $luck;
+        $score = $player->skill_level;
+        $result = array();
 
         if ($player->gender === 'male') {
-            $score += $player->strength + $player->speed;
+
+            $strength = $player->strength + $this->calculateLuck($player->skill_level); 
+            $speed = $player->speed + $this->calculateLuck($player->skill_level);
+            $score += $strength + $speed;
+
         } elseif ($player->gender === 'female') {
-            $score += $player->strength + $player->speed + $player->reaction_time;
+
+            $strength = $player->strength + $this->calculateLuck($player->skill_level);
+            $speed = $player->speed + $this->calculateLuck($player->skill_level);
+            $reaction_time = $player->reaction_time + $this->calculateLuck($player->skill_level);
+            $score += $strength + $speed + $reaction_time;
+
         }
 
         return $score;

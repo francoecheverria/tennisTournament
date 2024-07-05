@@ -97,6 +97,7 @@
         th {
             background-color: #f2f2f2;
         }
+
         .container {
             max-width: 1585px;
             margin: 0 auto;
@@ -111,8 +112,8 @@
 <body>
     <div class="container">
         <h1>Detalle del Torneo</h1>
-        <h2>Fecha: {{$tournamentHistory->date}}</h2>
-        <h2>Genero: {{$tournamentHistory->gender}}</h2>
+        <h2>Fecha: {{ $tournamentHistory->date }}</h2>
+        <h2>Genero: {{ $tournamentHistory->gender }}</h2>
         <div class="tournament-bracket">
             @foreach ($tournamentHistory->rounds as $roundIndex => $round)
                 @if ($roundIndex > 0)
@@ -142,17 +143,22 @@
                     <th>Nivel</th>
                     <th>Fuerza</th>
                     <th>Velocidad</th>
-                    <th>Tiempo de Reacción</th>
+                    @if ($player['gender'] === 'female')
+                        <th>Tiempo de Reacción</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
                 @foreach ($tournamentHistory->players as $player)
                     <tr>
-                        <td><input readonly="readonly" type="text" name="players[{{ $loop->index }}][name]" value="{{ $player['name'] }}"></td>
-                        <td><input readonly="readonly" type="number" name="players[{{ $loop->index }}][skill_level]" value="{{ $player['skill_level'] }}" placeholder="Nivel de Habilidad"></td>
-                        <td><input readonly="readonly" type="number" name="players[{{ $loop->index }}][strength]" value="{{ $player['strength'] }}" placeholder="Fuerza"></td>
-                        <td><input readonly="readonly" type="number" name="players[{{ $loop->index }}][speed]" value="{{ $player['speed'] }}" placeholder="Velocidad"></td>
-                        <td><input readonly="readonly" type="number" name="players[{{ $loop->index }}][reaction_time]" value="{{ $player['reaction_time'] }}" placeholder="Tiempo de Reacción"></td>
+                        <td>{{ $player['name'] }}</td>
+                        <td>{{ $player['skill_level'] }}</td>
+                        <td>{{ $player['strength'] }}</td>
+                        <td>{{ $player['speed'] }}</td>
+                        @if ($player['gender'] === 'female')
+                            <td>{{ $player['reaction_time'] }}</td>
+                        @endif
+
                     </tr>
                 @endforeach
             </tbody>

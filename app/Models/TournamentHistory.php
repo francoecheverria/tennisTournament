@@ -14,7 +14,7 @@ class TournamentHistory extends Model
         'gender',
         'rounds',
         'winner',
-        'players'
+        'players',
     ];
 
     protected $casts = [

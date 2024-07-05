@@ -118,10 +118,10 @@
                                 <input type="hidden" name="players[{{ $loop->index }}][id]" value="{{ $player->id }}">
                                 <input type="text" name="players[{{ $loop->index }}][name]" value="{{ $player->name }}">
                             </td>
-                            <td><input type="number" name="players[{{ $loop->index }}][skill_level]" value="{{ $player->skill_level }}" placeholder="Nivel de Habilidad"></td>
-                            <td><input type="number" name="players[{{ $loop->index }}][strength]" value="{{ $player->strength }}" placeholder="Fuerza"></td>
-                            <td><input type="number" name="players[{{ $loop->index }}][speed]" value="{{ $player->speed }}" placeholder="Velocidad"></td>
-                            <td><input type="number" name="players[{{ $loop->index }}][reaction_time]" value="{{ $player->reaction_time }}" placeholder="Tiempo de Reacción"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][skill_level]" value="{{ $player->skill_level }}" placeholder="Nivel de Habilidad"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][strength]" value="{{ $player->strength }}" placeholder="Fuerza"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][speed]" value="{{ $player->speed }}" placeholder="Velocidad"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][reaction_time]" value="{{ $player->reaction_time }}" placeholder="Tiempo de Reacción"></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -153,9 +153,9 @@
                                 <input type="hidden" name="players[{{ $loop->index }}][id]" value="{{ $player->id }}">
                                 <input type="text" name="players[{{ $loop->index }}][name]" value="{{ $player->name }}">
                             </td>
-                            <td><input type="number" name="players[{{ $loop->index }}][skill_level]" value="{{ $player->skill_level }}" placeholder="Nivel de Habilidad"></td>
-                            <td><input type="number" name="players[{{ $loop->index }}][strength]" value="{{ $player->strength }}" placeholder="Fuerza"></td>
-                            <td><input type="number" name="players[{{ $loop->index }}][speed]" value="{{ $player->speed }}" placeholder="Velocidad"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][skill_level]" value="{{ $player->skill_level }}" placeholder="Nivel de Habilidad"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][strength]" value="{{ $player->strength }}" placeholder="Fuerza"></td>
+                            <td><input type="number" max="100" name="players[{{ $loop->index }}][speed]" value="{{ $player->speed }}" placeholder="Velocidad"></td>
                         </tr>
                         @endforeach
                     </tbody>

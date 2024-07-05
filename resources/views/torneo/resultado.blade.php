@@ -5,7 +5,7 @@
     <title>Resultado del Torneo</title>
     <style>
         body {
-            font-family: Arial, -serif;
+            font-family: Arial, sans-serif;
             text-align: center;
         }
 
@@ -141,22 +141,21 @@
                     <th>Nivel</th>
                     <th>Fuerza</th>
                     <th>Velocidad</th>
-                    <th>Tiempo de Reacción</th>
+                    @if ($player->gender === 'female')
+                        <th>Tiempo de Reacción</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
                 @foreach ($players as $player)
                     <tr>
-                        <td><input type="text" name="players[{{ $loop->index }}][name]" value="{{ $player->name }}">
-                        </td>
-                        <td><input type="number" name="players[{{ $loop->index }}][skill_level]"
-                                value="{{ $player->skill_level }}" placeholder="Nivel de Habilidad"></td>
-                        <td><input type="number" name="players[{{ $loop->index }}][strength]"
-                                value="{{ $player->strength }}" placeholder="Fuerza"></td>
-                        <td><input type="number" name="players[{{ $loop->index }}][speed]"
-                                value="{{ $player->speed }}" placeholder="Velocidad"></td>
-                        <td><input type="number" name="players[{{ $loop->index }}][reaction_time]"
-                                value="{{ $player->reaction_time }}" placeholder="Tiempo de Reacción"></td>
+                        <td>{{ $player->name }}</td>
+                        <td>{{ $player->skill_level }}</td>
+                        <td>{{ $player->strength }}</td>
+                        <td>{{ $player->speed }}</td>
+                        @if ($player->gender === 'female')
+                            <td>{{ $player->reaction_time }}</td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>
